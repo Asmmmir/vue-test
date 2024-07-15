@@ -2,11 +2,11 @@
   <div class="suggestions">
     <ul class="suggestions__list" v-if="showSuggestions">
       <li
-        v-for="(player) in suggestions"
+        v-for="player in suggestions"
         :key="player.id"
         class="suggestions__item"
         @click="goToPlayer(player)"
-        v-html="highlightLetter(player.name)" 
+        v-html="highlightLetter(player.name)"
       ></li>
     </ul>
   </div>
@@ -17,24 +17,24 @@ export default {
   props: {
     suggestions: Array,
     showSuggestions: Boolean,
-    query: String 
+    query: String,
   },
   methods: {
     highlightLetter(name) {
-      if (!this.query) return name; 
-      const regex = new RegExp(`(${this.query})`, 'gi');
-      return name.replace(regex, '<strong>$1</strong>');
+      const regex = new RegExp(`(${this.query})`, "gi");
+      return name.replace(regex, "<strong>$1</strong>");
     },
     goToPlayer(player) {
-  this.$router.push({ name: 'PlayerDetail', params: { id: player.id } }); 
-}
-  }
+      this.$router.push({ name: "PlayerDetail", params: { id: player.id } });
+    },
+  },
 };
 </script>
 
 <style scoped>
 .suggestions {
-  background-color: rgb(205, 228, 248);
+  background-color: white;
+  box-shadow: 5px 1px 13px black;
 }
 
 .suggestions__list {
@@ -45,9 +45,10 @@ export default {
 
 .suggestions__item {
   cursor: pointer;
+  padding: 0.5em;
 }
 
 .suggestions__item:hover {
-  background-color: #8cff45;
+  background-color: rgb(167, 167, 167);
 }
 </style>

@@ -30,5 +30,15 @@
     padding: 1em;
     font-size: 14px;
   }
+
+  .search {
+    display: flex;
+  }
+
+  .search__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   </style>
   
